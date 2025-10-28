@@ -12,8 +12,8 @@
 
     <main>
         <h1>🎒Mochimania🎒</h1>
-        <img src="empresario.jpg" alt="Equipo Mochimania">
-        <h2>El equipo de trabajo surgió de la iniciativa de un grupo de emprendedores que buscaban creae mochilas funcionales y de calidad.
+        <img src=empresario.jpg id="IMG2" onclick="IMG2()" alt="Equipo Mochimania">
+        <h2 id="texto" onclick="desaparecer()">El equipo de trabajo surgió de la iniciativa de un grupo de emprendedores que buscaban creae mochilas funcionales y de calidad.
             Así nació Mochimania, una empresa dedicada a diseñar y fabricar mochilas innovadoras que combinan estilo y practicidad.
         </h2>
 
@@ -24,5 +24,15 @@
     <footer class="bottom-footer">
         © Mochimania 2025
     </footer>
+    <script>
+        let texto_desaparecer= document.getElementById("texto");
+        function desaparecer(){
+            imagen_desaparecer.style.display="none";
+        }
+        let imagen= document.getElementById("IMG2");
+        function IMG2(){
+            texto.style.display="none";
+        }
+    </script>
 </body>
 </html>
