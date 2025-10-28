@@ -10,6 +10,7 @@
 
     <button id="verTodo" type="button" aria-label="Ver todo">Ver todo</button>
 
+
     <main>
         <h1>🎒Mochimania🎒</h1>
         <img src=empresario.jpg id="IMG2" onclick="IMG2()" alt="Equipo Mochimania">
@@ -29,9 +30,18 @@
         function desaparecer(){
             imagen_desaparecer.style.display="none";
         }
-        let imagen= document.getElementById("IMG2");
+
+
+        let imagen_desaparecer= document.getElementById("IMG2");
         function IMG2(){
-            texto.style.display="none";
+            texto_desaparecer.style.display="none";
+        }
+        let boton_verTodo= document.getElementById("verTodo");
+        boton_verTodo.addEventListener("click", verTodo);
+        
+        function verTodo(){
+            texto_desaparecer.style.display="";
+            imagen_desaparecer.style.display="";
         }
     </script>
 </body>
