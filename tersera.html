@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand">Mochilas</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="yo.html">modelos</a></li>
+        <a href="tersera.html">info</a></li>
+      </ul>
+    </div>
+  </nav>
+
+    <button id="verTodo" type="button" aria-label="Ver todo">Ver todo</button>
+
+
+    <main>
+        <h1>🎒Mochimania🎒</h1>
+        <img src=empresario.jpg id="IMG2" onclick="IMG2()" alt="Equipo Mochimania">
+        <h2 id="texto" onclick="desaparecer()">El equipo de trabajo surgió de la iniciativa de un grupo de emprendedores que buscaban creae mochilas funcionales y de calidad.
+            Así nació Mochimania, una empresa dedicada a diseñar y fabricar mochilas innovadoras que combinan estilo y practicidad.
+        </h2>
+
+        <div class="columnas-container">
+            <div class="columna">
+                <h3>Nuestra Historia</h3>
+                <p>Fundada en 2020, Mochimania nació de la pasión por crear productos que combinen funcionalidad y estilo. Nuestro equipo se dedica a diseñar mochilas que satisfagan las necesidades de estudiantes y profesionales.</p>
+            </div> 
+            <div class="columna">
+                <h3>Compromiso</h3>
+                <p>Nos comprometemos a utilizar materiales de alta calidad y procesos de fabricación sostenibles. Cada mochila está diseñada pensando en la durabilidad y el confort del usuario.</p>
+            </div>
+            <div class="columna">
+                <h3>Innovación</h3>
+                <p>Constantemente buscamos nuevas formas de mejorar nuestros productos. Incorporamos tecnología y diseño moderno para crear mochilas que se adapten al estilo de vida contemporáneo.</p>
+            </div>
+        </div>
+
+    </main>
+
+    
+    <footer class="bottom-footer">
+        © Mochimania 2025
+    </footer>
+    <script>
+        let texto_desaparecer= document.getElementById("texto");
+        function desaparecer(){
+            imagen_desaparecer.style.display="none";
+        }
+
+
+        let imagen_desaparecer= document.getElementById("IMG2");
+        function IMG2(){
+            texto_desaparecer.style.display="none";
+        }
+        let boton_verTodo= document.getElementById("verTodo");
+        boton_verTodo.addEventListener("click", verTodo);
+        
+        function verTodo(){
+            texto_desaparecer.style.display="";
+            imagen_desaparecer.style.display="";
+        }
+    </script>
+</body>
+</html>

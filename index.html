@@ -1,62 +1,52 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-
-    <button id="verTodo" type="button" aria-label="Ver todo">Ver todo</button>
-
-
-    <main>
-        <h1>🎒Mochimania🎒</h1>
-        <img src=empresario.jpg id="IMG2" onclick="IMG2()" alt="Equipo Mochimania">
-        <h2 id="texto" onclick="desaparecer()">El equipo de trabajo surgió de la iniciativa de un grupo de emprendedores que buscaban creae mochilas funcionales y de calidad.
-            Así nació Mochimania, una empresa dedicada a diseñar y fabricar mochilas innovadoras que combinan estilo y practicidad.
-        </h2>
-
-        <div class="columnas-container">
-            <div class="columna">
-                <h3>Nuestra Historia</h3>
-                <p>Fundada en 2020, Mochimania nació de la pasión por crear productos que combinen funcionalidad y estilo. Nuestro equipo se dedica a diseñar mochilas que satisfagan las necesidades de estudiantes y profesionales.</p>
-            </div> 
-            <div class="columna">
-                <h3>Compromiso</h3>
-                <p>Nos comprometemos a utilizar materiales de alta calidad y procesos de fabricación sostenibles. Cada mochila está diseñada pensando en la durabilidad y el confort del usuario.</p>
-            </div>
-            <div class="columna">
-                <h3>Innovación</h3>
-                <p>Constantemente buscamos nuevas formas de mejorar nuestros productos. Incorporamos tecnología y diseño moderno para crear mochilas que se adapten al estilo de vida contemporáneo.</p>
-            </div>
-        </div>
-
-    </main>
-
     
-    <footer class="bottom-footer">
-        © Mochimania 2025
-    </footer>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand"><i class="fa-solid fa-bag-shopping"></i> Mochilas</div>
+      <ul class="nav-links">
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+        <li><a href="yo.html"><i class="fa-solid fa-image"></i> Modelos</a></li>
+        <li><a href="tersera.html"><i class="fa-solid fa-circle-info"></i> Info</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+    <div class="main-content">
+      <h1 id="titulo">mochi mania</h1>
+      <div class="img-container">
+        <img src="mochilas.jpg" alt="las mejores mochilas">
+      </div>
+      <p id="subtitulo">bienvenidos a mochi mania donde encontradas las mejores mochilas a los mejores precios en el continenete</p>
+      <div class="button-group">
+        <button onclick="cambiosubtitulo1()">cambiar</button>
+        <button onclick="cambiosubtitulo2()">cambiar2</button>
+        <button onclick="cambiosubtitulo3()">cambiar3</button>
+      </div>
+    </div>
+    
     <script>
-        let texto_desaparecer= document.getElementById("texto");
-        function desaparecer(){
-            imagen_desaparecer.style.display="none";
+    let cambio=document.getElementById("subtitulo");
+    function cambiosubtitulo1(){
+            cambio.innerHTML="encuentra las mejores mochilas del mercado a los mejores precios";
         }
-
-
-        let imagen_desaparecer= document.getElementById("IMG2");
-        function IMG2(){
-            texto_desaparecer.style.display="none";
+    let cambio2=document.getElementById("subtitulo");
+    function cambiosubtitulo2(){
+            cambio2.innerHTML="ofertas exclusivas en mochilas de alta calidad";
         }
-        let boton_verTodo= document.getElementById("verTodo");
-        boton_verTodo.addEventListener("click", verTodo);
-        
-        function verTodo(){
-            texto_desaparecer.style.display="";
-            imagen_desaparecer.style.display="";
+        let cambio3=document.getElementById("subtitulo");
+    function cambiosubtitulo3(){
+            cambio3.innerHTML="descubre nuestra coleccion de mochilas modernas y funcionales";
         }
     </script>
+
 </body>
 </html>

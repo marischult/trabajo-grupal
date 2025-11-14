@@ -1,0 +1,174 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mochi mania</title>
+  <link rel="stylesheet" href="stilo.css">
+</head>
+<body>
+ 
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand">Mochilas</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="yo.html">modelos</a></li>
+        <a href="tersera.html">info</a></li>
+      </ul>
+    </div>
+  </nav>
+  <h1 id="inicio">Nuestras diferentes mochilas  
+
+  <div class="mochilas" id="mochilas">
+    <div class="mochila" style="background-color: red;" onclick="cambiarColor(this)"></div>
+    <div class="mochila" style="background-color: blue;" onclick="cambiarColor(this)"></div>
+    <div class="mochila" style="background-color: yellow;" onclick="cambiarColor(this)"></div>
+    <div class="mochila" style="background-color: black;" onclick="cambiarColor(this)"></div>
+    <div class="mochila" style="background-color: purple;" onclick="cambiarColor(this)"></div>
+  </div>
+
+  <div id="colorSeleccionado"></div>
+
+  <div class="accordion">
+    <div class="accordion-item">
+      <div class="accordion-header">Mochila Roja</div>
+      <div class="accordion-content">
+        <p>Nuestra mochila roja es ideal para un estilo llamativo y bello. Perfecta para quienes buscan destacar.</p>
+        <img src="rojo.jpeg" alt="Detalle mochila roja">
+      </div>
+    </div>
+    
+    <div class="accordion-item">
+      <div class="accordion-header">Mochila Azul</div>
+      <div class="accordion-content">
+        <p>La mochila azul representa elegancia y tranquilidad. Combina con cualquier outfit.</p>
+        <img src="azul.jpeg" alt="Detalle mochila azul">
+      </div>
+    </div>
+    
+    <div class="accordion-item">
+      <div class="accordion-header">Mochila Amarilla</div>
+      <div class="accordion-content">
+        <p>Alegre y vibrante, nuestra mochila amarilla es perfecta para un estilo mas juvenil y divertido.</p>
+        <img src="amarillo.jpeg" alt="Detalle mochila amarilla">
+      </div>
+    </div>
+    
+    <div class="accordion-item">
+      <div class="accordion-header">Mochila Negra</div>
+      <div class="accordion-content">
+        <p>La mochila negra es un clásico atemporal. Elegante y práctica para cualquier ocasión.</p>
+        <img src="negra.jpeg" alt="Detalle mochila negra">
+      </div>
+    </div>
+    
+    <div class="accordion-item">
+      <div class="accordion-header">Mochila Violeta</div>
+      <div class="accordion-content">
+        <p>Con un tono único y destacador, la mochila violeta añade un toque de distinto.</p>
+        <img src="violeta.jpeg" alt="Detalle mochila violeta">
+      </div>
+    </div>
+  </div>
+
+   
+
+  <script>
+     
+    document.addEventListener('DOMContentLoaded', function () {
+      // Inicializar acordeón
+      const accordionItems = document.querySelectorAll('.accordion-item');
+      
+      accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        header.addEventListener('click', () => {
+          const currentlyActive = document.querySelector('.accordion-item.active');
+          if (currentlyActive && currentlyActive !== item) {
+            currentlyActive.classList.remove('active');
+            // Reset any shrunk images in other panels
+            const shrunkImages = currentlyActive.querySelectorAll('img.shrink');
+            shrunkImages.forEach(img => img.classList.remove('shrink'));
+          }
+          item.classList.toggle('active');
+        });
+
+        // Agregar click para las imágenes
+        const img = item.querySelector('.accordion-content img');
+        if (img) {
+          img.addEventListener('click', function(e) {
+            e.stopPropagation(); // Evitar que el click afecte al acordeón
+            this.classList.toggle('shrink');
+          });
+        }
+      });
+
+      // Código existente para las mochilas
+      const mochilas = document.querySelectorAll('.mochila');
+      const etiqueta = document.getElementById('colorSeleccionado');
+
+      mochilas.forEach(m => {
+         
+        const aplicar = () => {
+           
+          const color = getComputedStyle(m).backgroundColor;
+           
+          document.body.style.backgroundColor = color;
+
+         
+           
+ 
+          const textColor = getContrastTextColor(color);
+          document.body.style.color = textColor;
+          etiqueta.style.color = textColor;
+        };
+
+        m.addEventListener('click', aplicar);
+        m.addEventListener('touchstart', function (ev) {
+          ev.preventDefault();  
+          aplicar();
+        }, { passive: false });
+      });
+
+     
+      function getContrastTextColor(rgbString) {
+       
+        const nums = rgbString.match(/\d+/g);
+        if (!nums) return '#000';
+        const r = Number(nums[0]);
+        const g = Number(nums[1]);
+        const b = Number(nums[2]);
+
+        // Si el color es amarillo (R y G altos, B bajo), retornar blanco
+        if (r > 200 && g > 200 && b < 100) {
+          return '#fff';
+        }
+        
+        const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+        return luminance > 0.6 ? '#000' : '#fff';
+      }
+    });
+
+    
+    function cambiarColor(el) {
+    
+      if (!el) return;
+      let color;
+      if (typeof el === 'string') {
+        color = el;
+      } else if (el instanceof Element) {
+        color = getComputedStyle(el).backgroundColor;
+      }
+
+      if (!color) return;
+
+      document.body.style.backgroundColor = color;
+      const nombre = (el.dataset && el.dataset.nombre) ? el.dataset.nombre : color;
+      const etiqueta = document.getElementById('colorSeleccionado');
+         
+      const textColor = (typeof getContrastTextColor === 'function') ? getContrastTextColor(color) : '#000';
+      document.body.style.color = textColor;
+      if (etiqueta) etiqueta.style.color = textColor;
+    }
+  </script>
+
+</body>
+</html>
