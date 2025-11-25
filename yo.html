@@ -3,10 +3,10 @@
   <meta charset="UTF-8">
   <title>Mochi mania</title>
   <link rel="stylesheet" href="stilo.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
     .navbar {
       width: 100%;
-      /* height: var(--nav-height); opcional si tienes la variable definida */
       background: linear-gradient(90deg, #2d3e50 70%, #ffd700 100%);
       color: #fff;
       padding: 1em 0;
@@ -65,17 +65,44 @@
         margin-bottom: 0.5em;
       }
     }
+    .mochilas {
+      display: flex;
+      gap: 1.2em;
+      justify-content: center;
+      margin: 2em 0 1.5em 0;
+    }
+    .mochila {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, border 0.2s;
+      display: inline-block;
+    }
+    .mochila:hover {
+      transform: scale(1.13);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+      border: 3px solid #ffd700;
+    }
+    #colorSeleccionado {
+      text-align: center;
+      margin-bottom: 1.5em;
+      font-size: 1.1em;
+      min-height: 1.5em;
+    }
   </style>
 </head>
 <body>
  
   <nav class="navbar">
     <div class="nav-inner">
-      <div class="nav-brand">Mochilas</div>
+      <div class="nav-brand"><i class="fa-solid fa-bag-shopping"></i> Mochilas</div>
       <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="yo.html">modelos</a></li>
-        <a href="tersera.html">info</a></li>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+        <li><a href="yo.html"><i class="fa-solid fa-image"></i> Modelos</a></li>
+        <li><a href="tersera.html"><i class="fa-solid fa-circle-info"></i> Info</a></li>
       </ul>
     </div>
   </nav>
